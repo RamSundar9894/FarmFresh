@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap");
+
+$black: #000000;
+$white: #ffffff;
+$fern: #66bb6a;
+$outer-space: #263238;
+$limed-spruce: #324148;
+$alabaster: #f7f7f7;
+$lynch: #607d8b;
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+  text-align: center;
+  width: 100%; // Ensure container takes full width
+  min-height: 100vh; // Full viewport height to center vertically
+
+  &__title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem; // Adjusted space between items
+  }
+
+  .category__item {
+    position: relative;
+    margin: 20px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out; // Smooth transition for the entire item
+
+    .category__img {
+      width: 200px; // Adjusted size
+      height: 200px; // Adjusted size
+      object-fit: cover;
+      border-radius: 50%; // Ensure the image is circular
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; // Smooth transition for hover effect
+    }
+
+    .category__name {
+      font-size: 1.8rem; // Further increased font size
+      font-weight: bold;
+      margin-top: 10px; // Space between image and text
+      transition: color 0.3s ease-in-out; // Smooth transition for text color on hover
+    }
+
+    &:hover {
+      .category__img {
+        transform: scale(1.1); // Slightly zoom the image on hover
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); // Add shadow on hover
+      }
+
+      .category__name {
+        color: $fern; // Change text color on hover
+      }
+    }
+  }
+}

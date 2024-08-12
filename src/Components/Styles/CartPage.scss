@@ -1,0 +1,118 @@
+/* Existing styles */
+.container-a {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 125px; /* Ensure this value is sufficient to clear the Navbar */
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* Add this to position the remove button */
+}
+
+.cart-item__image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.cart-item__details {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.cart-item__details h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cart-item__details p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.btn__remove {
+  position: absolute; /* Position the button absolutely */
+  right: 10px; /* Adjust the position as needed */
+  top: 50%; /* Center it vertically */
+  transform: translateY(-50%); /* Center it vertically */
+  padding: 5px 10px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn__remove:hover {
+  background-color: #ff1a1a;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  padding: 15px;
+  border-top: 2px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cart-summary .total-price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn__checkout {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn__checkout:hover {
+  background-color: #218838;
+}
+
+/* New success message styles */
+.success-message {
+  position: fixed; /* Fixed position to stay visible at the top */
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #dff0d8; /* Light green background */
+  color: #3c763d; /* Dark green text */
+  padding: 10px 20px;
+  border: 1px solid #d6e9c6; /* Slightly darker green border */
+  border-radius: 4px;
+  z-index: 1000; /* Ensure it appears above other content */
+  font-size: 16px;
+  font-weight: bold;
+}

@@ -1,0 +1,48 @@
+/* Example button styles */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin: 5px;
+  text-decoration: none;
+}
+
+.btn__login {
+  background-color: #4CAF50; /* Green */
+}
+
+.btn__signup {
+  background-color: #008CBA; /* Blue */
+}
+
+.btn__logout {
+  background-color: #f44336; /* Red */
+}
+
+/* Username styling */
+.username {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Example color */
+  color: #fff;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.header__cart {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem; /* Adjust the spacing between the logout button and the cart button */
+  font-size: 1.5rem; /* Adjust the icon size as needed */
+  color: #161414; /* Initial color of the cart icon */
+}
+
+.header__cart:hover {
+  color: #007bff; /* Color of the cart icon on hover */
+}
+
+.header__auth .btn,
+.header__auth .header__cart {
+  margin-left: 1rem;
+}

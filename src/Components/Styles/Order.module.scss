@@ -1,0 +1,115 @@
+/* Container styling */
+.container-a {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 125px; /* Ensure this value is sufficient to clear the Navbar */
+}
+
+/* Box styling for each order */
+.order-box {
+  margin-bottom: 20px; /* Space between each order */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Content styling within each order */
+.order-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between products within an order */
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Image styling */
+.order-item__image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.order-item__details {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.order-item__details h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.order-item__details p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+/* Summary section */
+.order-summary {
+  margin-top: 20px;
+  padding: 15px;
+  border-top: 2px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Order Again Button */
+.btn__order-again {
+  padding: 10px 20px;
+  background-color: #28a745; /* Green background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn__order-again:hover {
+  background-color: #218838; /* Darker green for hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Align button to the right */
+.order-summary-button-container {
+  text-align: right;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .order-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-summary h2,
+  .btn__order-again {
+    margin-top: 10px;
+  }
+}

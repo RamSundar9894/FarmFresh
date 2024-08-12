@@ -1,0 +1,654 @@
+@import url("https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap");
+
+$black: #000000;
+$white: #ffffff;
+$fern: #66bb6a;
+$btn-bs: 1px 10px 30px -10px rgba(102, 187, 106, 1);
+$outer-space: #263238;
+$alabaster: #f7f7f7;
+$limed-spruce: #324148;
+$lynch: #607d8b;
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header__auth {
+  display: flex;
+  gap: 10px; /* Adjust the spacing between buttons as needed */
+}
+
+.btn {
+  padding: 10px 20px; /* Adjust padding for better appearance */
+  border-radius: 5px;
+  text-decoration: none;
+  color: $white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+.cat{
+  margin-left: 145px;
+}
+.btn__login, .btn__signup {
+  background-color: $fern;
+  border: none; /* Remove border */
+}
+
+.btn__login:hover, .btn__signup:hover {
+  background-color: darken($fern, 10%); /* Darker shade on hover */
+}
+
+.btn__login:active, .btn__signup:active {
+  transform: scale(0.98); /* Slightly shrink the button on click for effect */
+}
+
+.btn__signup i {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Chivo", sans-serif;
+  font-size: 1.6rem;
+  color: $black;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: $black;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+.container {
+  width: 100%;
+  padding: 0 1.5rem;
+  max-width: 144rem;
+  margin: 0 auto;
+}
+
+.w-120 {
+  max-width: 120rem;
+}
+
+.w-105 {
+  max-width: 105rem;
+}
+
+.btn {
+  border-radius: 0.5rem;
+  padding: 1.2rem;
+}
+
+@mixin btnShadow {
+  -webkit-box-shadow: $btn-bs;
+  -moz-box-shadow: $btn-bs;
+  box-shadow: $btn-bs;
+}
+
+@mixin btnHoverAnimate($defaultbgColor, $hoverBgColor, $hoverTextColor) {
+  /*
+    Button hover effect resource
+    https://codepen.io/alticreation/pen/zBZwOP
+    */
+  display: inline-block;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $defaultbgColor;
+    z-index: -2;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: $hoverBgColor;
+    transition: all 0.3s;
+    z-index: -1;
+  }
+  &:hover {
+    color: $hoverTextColor;
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+/*Header */
+
+header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.header__nav {
+  padding: 2rem 1.5rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  flex: 2;
+  img {
+    max-width: 12rem;
+  }
+}
+
+.header__nav__content {
+  flex: 8;
+  display: flex;
+  align-items: center;
+  &.open {
+    transform: translateX(0);
+  }
+}
+
+.header__menu {
+  flex: 4;
+  display: flex;
+  grid-gap: 2.5rem;
+}
+
+.menu__link {
+  cursor: pointer;
+  transition: 0.2s all;
+  &:hover {
+    color: $fern;
+  }
+  &.active {
+    color: $fern;
+    font-weight: bold;
+  }
+}
+
+.header__signup {
+  flex: 4;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn__signup {
+  border: none; /* Remove white border */
+  font-size: 1.6rem;
+  color: $white;
+  @include btnHoverAnimate($fern, darken($fern, 10%), $white);
+}
+
+.btn__login {
+  border: none; /* Remove white border */
+  font-size: 1.6rem;
+  color: $white;
+  @include btnHoverAnimate($fern, darken($fern, 10%), $white);
+}
+
+.hamburger-menu-wrap {
+  position: absolute;
+  top: 3rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 1;
+  display: none;
+}
+
+.hamburger-menu {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  grid-row-gap: 0.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+
+.hamburger-menu .line {
+  background-color: $fern;
+  height: 0.3rem;
+  width: 100%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.nav-close-icon {
+  position: relative;
+  padding: 3rem 2rem;
+  height: 2.5rem;
+  cursor: pointer;
+  display: none;
+  &:before,
+  &:after {
+    position: absolute;
+    content: "";
+    width: 4px;
+    right: 4rem;
+    height: 40%;
+    background-color: $white;
+  }
+  &:before {
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg) translate(0.5rem, -1rem);
+  }
+  &:after {
+    -webkit-transform: rotateZ(-45deg);
+    transform: rotateZ(-45deg) translate(1rem, 0.5rem);
+  }
+}
+
+/*End Header */
+
+/*End Hero */
+
+.hero {
+  margin: auto;
+  height: 100vh;
+}
+
+.hero__content {
+  display: flex;
+}
+
+.hero__text {
+  margin-top: 10rem;
+  max-width: 50rem;
+}
+
+.hero__title {
+  font-size: 4.6rem;
+}
+
+.hero__description {
+  font-size: 1.8rem;
+  margin: 2.5rem 0 5rem;
+  color: $outer-space;
+}
+
+.btn__hero {
+  border: 1px solid $fern;
+  color: $white;
+  font-size: 1.8rem;
+  @include btnShadow;
+  @include btnHoverAnimate($fern, $white, $fern);
+}
+
+.hero__img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  img {
+    max-height: 100vh;
+    width: initial;
+  }
+}
+
+/*End Hero */
+
+/*Opportunities*/
+
+.opportunities {
+  position: relative;
+}
+
+.opportunities__img {
+  position: absolute;
+  left: -1.5rem;
+  top: -16rem;
+  z-index: -1;
+  img {
+    max-height: 55rem;
+    max-width: 16rem;
+  }
+}
+
+.opportunities__content {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5rem;
+  border-bottom: 2px solid $alabaster;
+  margin-bottom: 4rem;
+}
+
+.opportunities__head {
+  text-align: center;
+  max-width: 70rem;
+  margin: 0 auto 10rem;
+}
+
+.opportunities__title {
+  font-size: 3.6rem;
+  color: $black;
+}
+
+.opportunities__description {
+  margin-top: 2.5rem;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: $outer-space;
+}
+
+.opportunities__body {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 2.5rem;
+  align-self: baseline;
+}
+
+.opportunity {
+  width: 30%;
+  background-color: $white;
+  border-radius: 0.5rem;
+  filter: drop-shadow(0 0 0.75rem rgba(27, 31, 35, 0.15));
+  padding: 5rem 2.5rem 2.5rem;
+  transition: all 0.3s ease-out;
+  &.active {
+    background-color: $fern;
+    .opportunity__title,
+    .opportunity__description {
+      color: $white;
+    }
+    &:hover {
+      transform: translateY(0);
+    }
+  }
+  &:hover {
+    transform: translateY(-2rem);
+  }
+}
+
+.opportunity__icon {
+  max-height: 5.6rem;
+  width: initial;
+}
+
+.opportunity__title {
+  font-size: 1.8rem;
+  color: $outer-space;
+  margin: 2.5rem 0;
+}
+
+.opportunity__description {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: $outer-space;
+}
+
+/*End Opportunities*/
+
+/* Invest*/
+
+.invest {
+  margin: auto;
+}
+
+.invest__head {
+  max-width: 70rem;
+}
+
+.invest__title {
+  font-size: 3.6rem;
+}
+
+.invest__description {
+  margin-top: 1.5rem;
+  color: $limed-spruce;
+  font-size: 1.8rem;
+}
+
+.invest__body {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+  grid-gap: 2.5rem;
+}
+
+.invest__item {
+  padding: 2.5rem;
+  &:nth-child(1) {
+    background: url("https://raw.githubusercontent.com/mustafadalga/farm-landing-page/master/assets/img/investments/invest-1.png")
+      no-repeat center/cover;
+  }
+  &:nth-child(2) {
+    background: url("https://raw.githubusercontent.com/mustafadalga/farm-landing-page/master/assets/img/investments/invest-2.png")
+      no-repeat center/cover;
+  }
+}
+
+.invest__item__subtitle {
+  color: $fern;
+  font-size: 1.4rem;
+  font-weight: 400;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 3rem;
+    left: 0;
+    width: 5.6rem;
+    height: 4px;
+    background-color: $white;
+  }
+}
+
+.invest__item__body {
+  margin: 5rem 0 2.5rem;
+}
+
+.invest__item__title {
+  color: $white;
+  font-size: 3.1rem;
+  max-width: 30rem;
+}
+
+.invest__item_description {
+  font-size: 1.6rem;
+  color: $white;
+  max-width: 30rem;
+}
+
+.btn__invest {
+  color: $fern;
+  display: inline-block;
+  width: 20rem;
+  text-align: center;
+  @include btnShadow;
+  @include btnHoverAnimate($white, $fern, $white);
+}
+
+/*End Invest*/
+
+/*End How Is Works*/
+
+.how-is-works {
+  background: url("https://raw.githubusercontent.com/mustafadalga/farm-landing-page/master/assets/img/how-is-works-bg.png")
+    no-repeat;
+  background-color: $fern;
+  margin: auto;
+}
+
+.works__content {
+  max-width: 70rem;
+  margin: auto;
+  color: $white;
+  padding: 0 1.5rem;
+}
+
+.works__head {
+  text-align: center;
+}
+
+.works__title {
+  font-size: 3.6rem;
+}
+
+.works__description {
+  margin-top: 2.5rem;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 3rem;
+}
+
+.works__body {
+  margin: 5rem 0 10rem;
+}
+
+.form_progressbar {
+  display: flex;
+  grid-column-gap: 13rem;
+}
+
+.progressbar__step {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 7.2rem;
+  height: 7.2rem;
+  border: 1px solid $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  &.active {
+    background-color: $white;
+    color: $fern;
+    &:not(:first-child)::after {
+      height: 5px;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: progressBarStepAnimate 0.5s linear forwards;
+    }
+  }
+  &:not(:first-child) {
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      right: 100%;
+      width: 13rem;
+      height: 1px;
+      background-color: $white;
+      pointer-events: none;
+    }
+  }
+}
+
+@keyframes progressBarStepAnimate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.email {
+  color: $white;
+}
+
+.btn__signin {
+  margin-top: 1.5rem;
+  border: 1px solid $white;
+  color: $fern;
+  @include btnHoverAnimate($white, $fern, $white);
+}
+
+@media screen and (max-width: 950px) {
+  /*Header */
+  .hamburger-menu-wrap,
+  .nav-close-icon {
+    display: block;
+  }
+  .header__nav__content {
+    flex: initial;
+    align-items: initial;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30rem;
+    height: 100vh;
+    background-color: $fern;
+    z-index: 2;
+    flex-direction: column;
+    transform: translateX(40rem);
+    transition: transform 0.3s ease-in-out;
+    grid-gap: 2.5rem;
+  }
+  .header__menu {
+    flex-direction: column;
+    flex: initial;
+    align-items: center;
+  }
+  .menu__link {
+    color: $white;
+    &:hover,
+    &.active {
+      color: $white;
+    }
+  }
+  .header__signup {
+    flex: initial;
+    justify-content: center;
+  }
+  /*End Header */
+  /*Hero */
+  .hero__content {
+    justify-content: center;
+    text-align: center;
+  }
+  .hero__img {
+    display: none;
+  }
+  /*End Hero */
+}
+
+@media screen and (max-width: 500px) {
+  /*Global*/
+  .opportunities__title,
+  .invest__title,
+  .works__title,
+  .testimonials__title,
+  .farm-invest__title {
+    font-size: 3rem;
+  }
+  .invest__description,
+  .works__description {
+    font-size: 1.6rem;
+  }
+  /*End Global*/
+  /*Hero*/
+  .hero__title {
+    font-size: 3.2rem;
+  }
+  /*End Hero*/
+}

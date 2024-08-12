@@ -1,0 +1,171 @@
+/* Global container style */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 80px; /* Adjust this based on Navbar height */
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Ensure Navbar has a solid background */
+  border-bottom: 1px solid #ddd; /* Border for separation */
+  z-index: 1000; /* Ensure Navbar stays above other content */
+  padding: 10px 20px; /* Adjust padding as needed */
+}
+
+/* Products Page Styling */
+.products {
+  padding: 20px;
+}
+
+.products__title {
+  font-size: 1.5em; /* Reduced font size */
+  margin-bottom: 10px;
+}
+
+.products__description {
+  margin-bottom: 20px;
+  font-size: 1em; /* Reduced font size */
+}
+
+.products__categories {
+  margin-bottom: 20px;
+}
+
+.btn__category {
+  margin: 5px;
+  padding: 8px 16px; /* Reduced padding */
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.btn__category:hover {
+  background-color: #45a049;
+}
+
+.products__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust gap for new size */
+}
+
+.product-item {
+  flex: 1 1 calc(25% - 20px); /* Adjusts to fit four items per row with gap */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Ensures vertical alignment */
+  margin: 10px; /* Adjust margin for consistency */
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Keep shadow for a subtle effect */
+  height: 400px; /* Fixed height for consistency */
+}
+
+.product-item img {
+  width: 200px; /* Increased width for image */
+  height: 200px; /* Increased height for image */
+  object-fit: cover; /* Ensure image covers the area without distortion */
+  border-radius: 5px; /* Optional: rounded corners */
+  margin-bottom: 10px; /* Space between image and text */
+}
+
+.product-item h2 {
+  margin: 8px 0; /* Reduced margin */
+  font-size: 1em; /* Reduced font size */
+}
+
+.product-item p {
+  font-size: 0.8em; /* Reduced font size */
+}
+
+.product-price {
+  font-size: 1em; /* Reduced font size */
+  margin: 8px 0; /* Reduced margin */
+}
+
+.btn__buy-now {
+  padding: 8px 16px; /* Reduced padding */
+  background-color: #4CAF50; /* Adjust according to your design */
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  margin-top: auto; /* Push button to the bottom of the product-item */
+}
+
+.btn__buy-now:hover {
+  background-color: #45a049; /* Adjust according to your design */
+}
+
+.buy-counter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buy-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.buy-counter .btn {
+  background-color: #4CAF50; /* Green color same as Buy button */
+  color: white;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.buy-counter .quantity {
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+.btn__confirm {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.success-message {
+  position: fixed; /* Fixed position to stay visible at the top */
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #dff0d8; /* Light green background */
+  color: #3c763d; /* Dark green text */
+  padding: 10px 20px;
+  border: 1px solid #d6e9c6; /* Slightly darker green border */
+  border-radius: 4px;
+  z-index: 1000; /* Ensure it appears above other content */
+  font-size: 16px;
+  font-weight: bold;
+}
