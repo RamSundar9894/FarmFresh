@@ -70,7 +70,10 @@ const ProductsPage = () => {
       <div className="container">
         <Navbar />
         <section className="products w-120">
-          <h1 className="products__title">Our Products</h1>
+          <div className="products__header">
+            <h1 className="products__title">Our Products</h1>
+            <Link to="/add" className="btn btn__add-product">Add New Product</Link>
+          </div>
           <p className="products__description">
             Explore our wide range of fresh farm products. Select a category to see more products.
           </p>
