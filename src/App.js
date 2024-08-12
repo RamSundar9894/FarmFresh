@@ -1,4 +1,3 @@
-// App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './Components/Home';
@@ -12,6 +11,7 @@ import ContactUs from './Components/ContactUs';
 import { AuthProvider } from './Components/AuthContext';
 import { CartProvider } from './Components/CartContext';
 import AddProductPage from './Components/AddProductPage';
+
 function App() {
   return (
     <AuthProvider>
@@ -26,7 +26,7 @@ function App() {
             <Route path="/payment" element={<PaymentPage />} />
             <Route path="/order" element={<OrderPage />} />
             <Route path="/contact" element={<ContactUs />} />
-            <Route path="/add" component={<AddProductPage/>} />
+            <Route path="/add-product" element={<AddProductPage />} /> {/* Corrected here */}
           </Routes>
         </Router>
       </CartProvider>

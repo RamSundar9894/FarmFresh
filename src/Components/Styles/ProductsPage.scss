@@ -176,18 +176,40 @@
   margin-bottom: 20px;
 }
 
-.btn__add-product {
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
 
 .btn__add-product:hover {
   background-color: #218838;
   transform: scale(1.05);
+}
+.btn__add-product {
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  padding: 5px 10px; /* Reduced padding */
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px; /* Adjust font size */
+  text-align: center; /* Center text */
+  display: inline-block; /* Ensure button size fits text */
+}/* ProductsPage.scss */
+
+.products-header {
+  display: flex;
+  justify-content: space-between; /* Distribute space between items */
+  align-items: center; /* Align items vertically centered */
+  margin-bottom: 20px; /* Adjust margin as needed */
+}
+
+.products__title {
+  flex: 1; /* Allow the title to take up available space */
+}
+
+.btn__add-product {
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  padding: 8px 16px; /* Increased padding for a larger button */
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px; /* Slightly larger font size */
+  text-align: center; /* Center text */
+  display: inline-block; /* Ensure button size fits text */
 }
