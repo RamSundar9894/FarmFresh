@@ -1,3 +1,5 @@
+// ProductsPage.jsx
+
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
@@ -6,19 +8,31 @@ import './Styles/ProductsPage.scss';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
+// Helper function to convert ArrayBuffer to Base64
+const arrayBufferToBase64 = (buffer) => {
+  let binary = '';
+  const bytes = new Uint8Array(buffer);
+  const len = bytes.byteLength;
+  for (let i = 0; i < len; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  return window.btoa(binary);
+};
+
 const ProductsPage = () => {
   const location = useLocation();
   const { addToCart } = useContext(CartContext);
   const queryParams = new URLSearchParams(location.search);
   const category = queryParams.get('category') || 'All';
   const [products, setProducts] = useState([]);
+  const [approvedProducts, setApprovedProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [buyingProduct, setBuyingProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [successMessage, setSuccessMessage] = useState('');
 
   useEffect(() => {
-    // Fetch all products
+    // Fetch products from Product entity
     const fetchProducts = async () => {
       try {
         const response = await axios.get('http://localhost:8080/products');
@@ -28,17 +42,39 @@ const ProductsPage = () => {
       }
     };
 
+    // Fetch approved products from AddProduct entity and their images
+    const fetchApprovedProducts = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/add-products/approved');
+        const productsWithImages = await Promise.all(response.data.map(async product => {
+          try {
+            const imageResponse = await axios.get(`http://localhost:8080/add-products/image/${product.id}`, { responseType: 'arraybuffer' });
+            const base64Image = `data:image/jpeg;base64,${arrayBufferToBase64(imageResponse.data)}`;
+            return { ...product, image: base64Image };
+          } catch (imageError) {
+            console.error('Error fetching image for product ID', product.id, imageError);
+            return { ...product, image: null }; // Fallback if image fails
+          }
+        }));
+        setApprovedProducts(productsWithImages);
+      } catch (error) {
+        console.error('Error fetching approved products:', error);
+      }
+    };
+
     fetchProducts();
+    fetchApprovedProducts();
   }, []);
 
   useEffect(() => {
-    // Filter products based on category
+    // Combine and filter products based on category
+    const allProducts = [...products, ...approvedProducts];
     const filtered = category === 'All'
-      ? products
-      : products.filter(product => product.category === category);
-    
+      ? allProducts
+      : allProducts.filter(product => product.category === category);
+
     setFilteredProducts(filtered);
-  }, [products, category]);
+  }, [products, approvedProducts, category]);
 
   const handleBuyNow = (productId) => {
     setBuyingProduct(productId);
@@ -55,13 +91,20 @@ const ProductsPage = () => {
   const handleConfirm = async () => {
     const product = filteredProducts.find(p => p.id === buyingProduct);
     if (product) {
-      await addToCart(product, quantity);
-      setSuccessMessage(`${product.name} added to the cart successfully.`);
-      setBuyingProduct(null);
-      setQuantity(1);
-      setTimeout(() => {
-        setSuccessMessage('');
-      }, 3000);
+      console.log('Adding to cart:', { product, quantity }); // Log product and quantity
+      try {
+        await addToCart(product, quantity);
+        setSuccessMessage(`${product.name} added to the cart successfully.`);
+        setBuyingProduct(null);
+        setQuantity(1);
+        setTimeout(() => {
+          setSuccessMessage('');
+        }, 3000);
+      } catch (error) {
+        console.error('Error adding product to cart:', error);
+      }
+    } else {
+      console.error('Product not found:', buyingProduct);
     }
   };
 
@@ -70,9 +113,9 @@ const ProductsPage = () => {
       <div className="container">
         <Navbar />
         <section className="products w-120">
-          <div className="products__header">
+          <div className="products-header">
             <h1 className="products__title">Our Products</h1>
-            <Link to="/add" className="btn btn__add-product">Add New Product</Link>
+            <Link to="/add-product" className="btn btn__add-product">Add New Product</Link>
           </div>
           <p className="products__description">
             Explore our wide range of fresh farm products. Select a category to see more products.
@@ -88,7 +131,11 @@ const ProductsPage = () => {
           <div className="products__list">
             {filteredProducts.map(product => (
               <div key={product.id} className="product-item" data-type={product.category}>
-                <img src={`/${product.image}`} alt={product.name} />
+                {product.image ? (
+                  <img src={product.image} alt={product.name} />
+                ) : (
+                  <p>No image available</p>
+                )}
                 <h2>{product.name}</h2>
                 <p className="product-price">₹{product.price.toFixed(2)}</p>
                 {buyingProduct === product.id ? (
