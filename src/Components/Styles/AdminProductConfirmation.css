@@ -1,0 +1,120 @@
+.admin-page-container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .admin-sidebar {
+    width: 250px; /* Width of the sidebar */
+    flex-shrink: 0;
+  }
+  
+  .admin-product-confirmation {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto; /* Allows scrolling if content exceeds height */
+  }
+  
+  .products-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .products-table th, .products-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .products-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+  }
+  
+  .product-image {
+    width: 100px;
+    height: auto;
+  }
+  
+  button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button:nth-of-type(2) {
+    background-color: #f44336; /* Red */
+  }
+  
+  button:nth-of-type(2):hover {
+    background-color: #e53935;
+  }
+  /* AdminProductConfirmation.css */
+
+/* Ensure the container takes up the full height of the viewport */
+.admin-product-confirmation {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+  }
+  
+  /* Style the sidebar (assuming AdminSidebar has specific styles) */
+  .admin-sidebar {
+    width: 250px; /* Adjust width as necessary */
+    background-color: #f4f4f4; /* Example background color */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  /* Style the main content area */
+  .main-content {
+    flex: 1;
+    margin-left: 250px; /* This should match the width of the sidebar */
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto; /* Allows scrolling if content overflows */
+  }
+  
+  .products-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .products-table th, .products-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .products-table th {
+    background-color: #f4f4f4;
+  }
+  
+  .product-image {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+  }
+  
+  .success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+  }
+  

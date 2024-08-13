@@ -1,0 +1,121 @@
+/* AdminProducts.css */
+
+.admin-body {
+    display: flex;
+    height: 100vh; /* Ensure full viewport height */
+    background-color: #f5f5f5; /* Light gray background */
+  }
+  
+  .admin-dashboard-container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .admin-sidebar {
+    width: 250px;
+    height: 100vh; /* Full viewport height */
+    background-color: #ffffff; /* White background for the sidebar */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 10px 10px 0; /* Rounded corners on the right */
+    position: sticky;
+    top: 0; /* Stick to the top */
+  }
+  
+  .admin-main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff; /* White background for the main content */
+    border-radius: 10px;
+    margin-left: 250px; /* Space between sidebar and content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for content */
+    overflow-y: auto; /* Allow vertical scroll */
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    max-width: 400px; /* Limit the width for better visual balance */
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .search-bar input::placeholder {
+    color: #aaa;
+    font-style: italic;
+  }
+  
+  .search-bar input:focus {
+    border-color: #4CAF50; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on focus */
+  }
+  
+  .products-table {
+    width: 100%;
+    overflow-x: auto; /* Allow horizontal scroll if needed */
+  }
+  
+  .products-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .products-table th,
+  .products-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .products-table th {
+    background-color: #f4f4f4;
+  }
+  
+  .products-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .products-table button {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .products-table button:hover {
+    background-color: #cc0000;
+  }
+  
+  .products-table button:active {
+    transform: scale(0.95);
+  }
+  /* AdminProducts.css */
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}

@@ -1,0 +1,272 @@
+/* General Body Styling */
+.admin-body {
+    background-color: #f0f2f5; /* Light grey background for a clean look */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font family */
+}
+
+/* Dashboard Container */
+.admin-dashboard-container {
+    display: flex;
+    height: 100vh;
+    color: #333; /* Dark grey text color for better readability */
+}
+
+/* Sidebar Styling */
+.admin-sidebar {
+    width: 250px; /* Adjusted width for a more compact look */
+    height: 100%;
+    background-color: #ffffff; /* White background for a clean look */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border-right: 1px solid #ddd; /* Light grey border to separate from content */
+}
+
+.admin-sidebar-header h2 {
+    color: #2e8b57; /* Sea green */
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.admin-sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-sidebar-nav ul li {
+    margin-bottom: 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    color: #333; /* Dark grey text color */
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.admin-sidebar-nav ul li:hover {
+    background-color: #e8f5e9; /* Very light green background on hover */
+    color: #2e8b57; /* Sea green text color */
+}
+
+.admin-sidebar-nav ul li i {
+    margin-right: 12px;
+    font-size: 22px; /* Slightly smaller icon size */
+    color: #2e8b57; /* Sea green */
+}
+
+.admin-logout {
+    position: absolute;
+    bottom: 20px;
+    font-size: 16px;
+    color: #2e8b57; /* Sea green */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    transition: color 0.3s;
+}
+
+.admin-logout i {
+    margin-right: 8px;
+}
+
+.admin-logout:hover {
+    color: #1c6f44; /* Darker sea green on hover */
+}
+
+/* Main Content Styling */
+.admin-main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: #ffffff; /* White background for main content */
+    border-radius: 10px; /* Rounded corners for content area */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-heading {
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-heading h1 {
+    color: #2e8b57; /* Sea green */
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Search Bar Styling */
+.admin-search-bar {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.admin-search-bar input {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd; /* Light grey border for the input */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #ffffff; /* White background */
+}
+
+.admin-search-bar input:focus {
+    border-color: #2e8b57; /* Sea green border on focus */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on focus */
+}
+
+/* Table Styling */
+.admin-users-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-users-table th, .admin-users-table td {
+    padding: 12px;
+    text-align: left;
+    border-radius: 8px;
+    background-color: #ffffff; /* White background for table cells */
+}
+
+.admin-users-table th {
+    background-color: #2e8b57; /* Sea green */
+    color: #ffffff; /* White text color */
+    font-weight: bold;
+}
+
+.admin-users-table tbody tr {
+    background-color: #f9f9f9; /* Light grey background for rows */
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 8px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.admin-users-table tbody tr:hover {
+    background-color: #e8f5e9; /* Very light green background on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+.admin-button {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+}
+
+.admin-save-button, .admin-delete-button {
+    background-color: #2e8b57; /* Sea green */
+    color: #ffffff; /* White text color */
+}
+
+.admin-save-button:hover, .admin-delete-button:hover {
+    background-color: #1c6f44; /* Darker sea green */
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Popup Styling */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup-box {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-box h2 {
+    margin: 0 0 15px;
+    font-size: 20px;
+    color: #333; /* Dark grey text color */
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.popup-button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #ffffff; /* White text color */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.popup-yes {
+    background: #28a745; /* Green */
+}
+
+.popup-no {
+    background: #dc3545; /* Red */
+}
+.admin-main-content {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .users-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .users-table table {
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  .users-table th,
+  .users-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  

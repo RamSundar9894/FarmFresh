@@ -1,0 +1,168 @@
+.admin-body {
+  background-color: #f0f4f8; /* Light background for the main body */
+}
+
+.admin-dashboard-container {
+  display: flex;
+  height: 100vh;
+  color: #333; /* Dark text for better readability */
+  font-family: 'Arial', sans-serif;
+}
+
+.admin-sidebar {
+  width: 250px;
+  height: 90vh;
+  margin-top: 3vh;
+  margin-left: 1vw;
+  border-radius: 20px;
+  background-color: #ffffff; /* White background for sidebar */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-sidebar-header h2 {
+  color: #2e8b57; /* Dark green color for the header */
+  font-size: 37px;
+  margin-bottom: 30px;
+}
+
+.admin-sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-sidebar-nav ul li {
+  margin-bottom: 25px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  color: #333; /* Dark text color */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.admin-sidebar-nav ul li:hover {
+  background-color: #e0f7fa; /* Light teal background on hover */
+}
+
+.admin-sidebar-nav ul li i {
+  margin-right: 15px;
+  font-size: 32px;
+  color: #2e8b57; /* Green icon color */
+}
+
+.admin-logout {
+  position: absolute;
+  bottom: 20px;
+  font-size: 22px;
+  color: #2e8b57; /* Green color for logout */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+  padding-bottom: 3vh;
+}
+
+.admin-logout i {
+  margin-right: 10px;
+}
+
+.sidebar-link {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.admin-main-content {
+  flex-grow: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  margin-top: 7%;
+  background-color: #ffffff; /* White background for the main content */
+}
+
+.admin-stats-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 30px;
+  gap: 30px;
+}
+
+.admin-stats-card {
+  background-color: #ffffff; /* White background for cards */
+  padding: 30px;
+  border-radius: 10px;
+  width: 48%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.admin-stats-card h3 {
+  color: #2e8b57; /* Dark green for stats headings */
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.admin-stats-card p {
+  color: #333; /* Dark text color for stats descriptions */
+  font-size: 18px;
+}
+
+.admin-recent-activities {
+  background-color: #ffffff; /* White background for activities */
+  padding: 25px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.admin-recent-activities h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: left;
+  color: #2e8b57; /* Dark green for recent activities heading */
+}
+
+.admin-activity-card {
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #e8f5e9; /* Light green background for activity cards */
+}
+
+.admin-activity-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-activity-card i {
+  margin-right: 15px;
+  color: #2e8b57; /* Green icon color */
+  font-size: 24px;
+}
+
+.admin-activity-card p {
+  margin: 0;
+  font-size: 18px;
+  color: #333; /* Dark text color */
+}

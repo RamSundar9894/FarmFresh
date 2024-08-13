@@ -8,10 +8,13 @@ import SignupPage from './Components/Signup';
 import PaymentPage from './Components/Payment'; 
 import OrderPage from './Components/Order'; 
 import ContactUs from './Components/ContactUs';
+import AddProductPage from './Components/AddProductPage';
+import AdminDashboard from './Components/AdminDashboard';
+import AdminOwner from './Components/AdminProducts';
+import AdminUsers from './Components/AdminUsers';
 import { AuthProvider } from './Components/AuthContext';
 import { CartProvider } from './Components/CartContext';
-import AddProductPage from './Components/AddProductPage';
-
+import AdminAddProductConfirmation from './Components/AdminProductConfirmation';
 function App() {
   return (
     <AuthProvider>
@@ -26,7 +29,11 @@ function App() {
             <Route path="/payment" element={<PaymentPage />} />
             <Route path="/order" element={<OrderPage />} />
             <Route path="/contact" element={<ContactUs />} />
-            <Route path="/add-product" element={<AddProductPage />} /> {/* Corrected here */}
+            <Route path="/add-product" element={<AddProductPage />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/adminproducts" element={<AdminOwner />} />
+            <Route path="/adminusers" element={<AdminUsers />} />
+            <Route path="/admin/add-product-confirmation" element={<AdminAddProductConfirmation />} />
           </Routes>
         </Router>
       </CartProvider>

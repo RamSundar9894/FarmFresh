@@ -21,11 +21,16 @@ const LoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (username && password) {
-            console.log('Attempting login with:', { username, password });
             const response = await login(username, password);
-            console.log('Login response:', response);
             if (response.success) {
-                navigate('/');
+                const { role } = response;
+                if (username==='Admin@1234') {
+                    navigate('/admin');
+                } else if (role === 'moderator') {
+                    navigate('/moderator'); // Add a route for moderators if necessary
+                } else {
+                    navigate('/');
+                }
             } else {
                 setErrorMessage(response.message);
             }
