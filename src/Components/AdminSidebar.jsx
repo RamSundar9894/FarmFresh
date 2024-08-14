@@ -1,11 +1,8 @@
 import React from 'react';
 import { FaTachometerAlt } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-// import './Styles/AdminSidebar.css';
-
 const AdminSidebar = () => {
   const navigate = useNavigate();
-
   return (
     <aside className="admin-sidebar">
       <div className="admin-sidebar-header">
@@ -25,5 +22,4 @@ const AdminSidebar = () => {
     </aside>
   );
 };
-
 export default AdminSidebar;

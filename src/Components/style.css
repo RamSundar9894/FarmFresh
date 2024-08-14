@@ -4,7 +4,6 @@ html, body {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
 .background-wave {
     position: fixed;
     bottom: 0;
@@ -12,52 +11,44 @@ html, body {
     height: 100%;
     z-index: -1;
 }
-
 .main-container {
     width: 100vw;
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Adjusted for left side width */
+    grid-template-columns: 1fr 1fr; 
     grid-gap: 7rem;
     padding: 0 2rem;
     align-items: center;
 }
-
 .image-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-
 .login-container {
-    display: inline-block; /* Changed to inline-block to fit content */
+    display: inline-block;
     text-align: center;
-    background-color: rgba(16, 162, 111, 0.1); /* Add semi-transparent green background */
+    background-color: rgba(16, 162, 111, 0.1); 
     border-radius: 15px;
     padding: 2rem;
-    max-width: 320px; /* Reduced width of the form */
-    margin-left: 250px; /* Adjusted margin to move the form to the left */
+    max-width: 320px;
+    margin-left: 250px;
 }
-
 .image-container img {
     width: 500px;
 }
-
 form {
-    width: 100%; /* Make form take full width of the container */
+    width: 100%;
 }
-
 .login-container img {
     height: 100px;
 }
-
 .login-title {
     margin: 15px 0;
     color: #333;
     text-transform: uppercase;
-    font-size: 2.4rem; /* Adjusted font size */
+    font-size: 2.4rem; 
 }
-
 .input-container {
     position: relative;
     display: grid;
@@ -66,46 +57,37 @@ form {
     padding: 5px 0;
     border-bottom: 2px solid #d9d9d9;
 }
-
 .input-container.error {
     border-bottom: 2px solid #e74c3c;
 }
-
 .input-container.error .icon-container {
     color: #e74c3c;
 }
-
 .input-container.error h5 {
     color: #e74c3c;
 }
-
 .input-container.error small {
     color: #e74c3c;
     position: absolute;
     bottom: -20px;
     left: 10px;
 }
-
 .username-container {
     margin-top: 0;
 }
-
 .icon-container {
     color: #d9d9d9;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .icon-container i {
     transition: .3s;
 }
-
 .input-field {
     position: relative;
     height: 45px;
 }
-
 .input-field h5 {
     position: absolute;
     left: 10px;
@@ -115,7 +97,6 @@ form {
     font-size: 18px;
     transition: .3s;
 }
-
 .input-container:before, .input-container:after {
     content: '';
     position: absolute;
@@ -125,28 +106,22 @@ form {
     background-color: #38d39f;
     transition: .4s;
 }
-
 .input-container:before {
     right: 50%;
 }
-
 .input-container:after {
     left: 50%;
 }
-
 .input-container.focus:before, .input-container.focus:after {
     width: 50%;
 }
-
 .input-container.focus h5 {
     top: -5px;
     font-size: 15px;
 }
-
 .input-container.focus .icon-container i {
     color: #38d39f;
 }
-
 .text-input {
     position: absolute;
     left: 0;
@@ -160,17 +135,14 @@ form {
     font-size: 1.2rem;
     color: #555;
     font-family: 'Poppins', sans-serif;
-    text-transform: none; /* Ensure no automatic capitalization */
+    text-transform: none;
 }
-
 .password-container {
     margin-bottom: 4px;
 }
-
 .confirm-password-container {
     margin-bottom: 4px;
 }
-
 .submit-btn {
     display: block;
     width: 100%;
@@ -188,47 +160,38 @@ form {
     cursor: pointer;
     transition: .5s;
 }
-
 .submit-btn:hover {
     background-position: right;
 }
-
 @media screen and (max-width: 1050px) {
     .main-container {
         grid-gap: 5rem;
     }
 }
-
 @media screen and (max-width: 1000px) {
     .login-container {
         max-width: 280px; /* Adjust form width for smaller screens */
     }
-
     .login-title {
         font-size: 2.4rem;
         margin: 8px 0;
     }
-
     .image-container img {
         width: 400px;
     }
 }
-
 @media screen and (max-width: 900px) {
     .main-container {
         grid-template-columns: 1fr;
     }
-
     .image-container {
         display: none;
     }
-
     .background-wave {
         display: none;
     }
-
     .login-container {
         justify-content: center;
-        margin-left: 0; /* Reset margin for mobile view */
+        margin-left: 0;
     }
 }

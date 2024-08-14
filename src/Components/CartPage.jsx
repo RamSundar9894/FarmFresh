@@ -4,20 +4,14 @@ import { CartContext } from './CartContext';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import './Styles/CartPage.scss';
-
 const CartPage = () => {
   const { cart, removeFromCart, fetchCart } = useContext(CartContext);
   const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
-
   useEffect(() => {
     fetchCart();
   }, [fetchCart]);
-
-  // Calculate total price
   const totalPrice = cart.reduce((total, item) => total + item.total, 0);
-
-  // Remove item from cart
   const handleRemoveItem = async (cartItemId) => {
     await removeFromCart(cartItemId);
     setSuccessMessage('Item removed from the cart successfully.');
@@ -25,12 +19,9 @@ const CartPage = () => {
       setSuccessMessage('');
     }, 3000);
   };
-
-  // Handle checkout button click
   const handleCheckout = () => {
     navigate('/payment');
   };
-
   return (
     <div>
       <Navbar />
@@ -68,5 +59,4 @@ const CartPage = () => {
     </div>
   );
 };
-
 export default CartPage;

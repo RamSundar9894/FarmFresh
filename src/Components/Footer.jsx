@@ -1,6 +1,5 @@
 import React from "react";
 import './Styles/Footer.css';
-
 const Plantmain = () => {
     return (
         <div>           
@@ -13,7 +12,6 @@ const Plantmain = () => {
                     <p>Email: info@urbanplant.in</p>
                     <p>Click to WhatsApp</p>
                 </section>
-
                 <section>
                     <h2>IMPORTANT LINKS</h2>
                     <p>About Us</p>
@@ -25,7 +23,6 @@ const Plantmain = () => {
                     <p>Become Brand Ambassador</p>
                     <p>Invest with us</p>
                 </section>
-
                 <section>
                     <h2>OUR POLICIES</h2>
                     <p>Shipping Policy</p>
@@ -33,7 +30,6 @@ const Plantmain = () => {
                     <p>Terms & Conditions</p>
                     <p>Refund Policy</p>
                 </section>
-
                 <section>
                     <h2>COMPANY INFO</h2>
                     <p>Brand Owned by Grandeur IT Innovations Private Limited</p>
@@ -42,12 +38,10 @@ const Plantmain = () => {
                     <p>CIN: U72200UP2020PTC127885</p>
                 </section>
             </footer>
-
             <div className="copyrights">
                 <p>&copy; {new Date().getFullYear()} Your Company Name. All Rights Reserved.</p>
             </div>
         </div>
     );
 };
-
 export default Plantmain;

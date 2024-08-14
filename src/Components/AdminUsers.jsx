@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-
 const AdminUsers = () => {
     const [users, setUsers] = useState([]);
     const [search, setSearch] = useState('');
@@ -14,9 +13,7 @@ const AdminUsers = () => {
     const [editingUser, setEditingUser] = useState(null);
     const [editedUserData, setEditedUserData] = useState({});
     const navigate = useNavigate();
-
     useEffect(() => {
-        // Fetch users data on component mount
         const fetchUsers = async () => {
             try {
                 const response = await axios.get('http://localhost:8080/users');
@@ -29,11 +26,9 @@ const AdminUsers = () => {
 
         fetchUsers();
     }, []);
-
     const handleSearchChange = (event) => {
         setSearch(event.target.value);
     };
-
     const handleDelete = async () => {
         try {
             if (userToDelete) {
@@ -48,18 +43,14 @@ const AdminUsers = () => {
             toast.error('Failed to remove user.');
         }
     };
-    
-
     const openDeletePopup = (userId) => {
         setUserToDelete(userId);
         setShowPopup(true);
     };
-
     const closeDeletePopup = () => {
         setShowPopup(false);
         setUserToDelete(null);
     };
-
     const startEditing = (user) => {
         setEditingUser(user.id);
         setEditedUserData({
@@ -68,7 +59,6 @@ const AdminUsers = () => {
             role: user.role,
         });
     };
-
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setEditedUserData(prevState => ({
@@ -76,7 +66,6 @@ const AdminUsers = () => {
             [name]: value,
         }));
     };
-
     const handleUpdate = async () => {
         try {
             await axios.put(`http://localhost:8080/users/update/${editingUser}`, editedUserData);
@@ -88,17 +77,12 @@ const AdminUsers = () => {
             toast.error('Failed to update user details.');
         }
     };
-    
-
     const cancelEditing = () => {
         setEditingUser(null);
     };
-
-    // Filter users based on search input
     const filteredUsers = users.filter(user =>
         user.username.toLowerCase().includes(search.toLowerCase())
     );
-
     return (
         <div className='admin-body'>
             <div className="admin-dashboard-container">
@@ -121,7 +105,6 @@ const AdminUsers = () => {
                     <div className='admin-heading'>
                         <h1>Manage Users on Farm Fresh</h1>
                     </div>
-
                     <div className="admin-search-bar">
                         <input
                             type="text"
@@ -130,7 +113,6 @@ const AdminUsers = () => {
                             onChange={handleSearchChange}
                         />
                     </div>
-                    
                     <br />
                     <table className="admin-users-table">
                         <thead>
@@ -213,7 +195,6 @@ const AdminUsers = () => {
                     />
                 </main>
             </div>
-
             {showPopup && (
                 <div className="popup-overlay">
                     <div className="popup-box">
@@ -229,5 +210,4 @@ const AdminUsers = () => {
         </div>
     );
 };
-
 export default AdminUsers;

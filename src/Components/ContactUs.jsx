@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
-import '@fontsource/raleway/400.css'; // Regular weight
-import '@fontsource/raleway/700.css'; // Bold weight
-import '@fontsource/open-sans/400.css'; // Regular weight
-import '@fontsource/open-sans/600.css'; // Semi-bold weight
-
+import '@fontsource/raleway/400.css';
+import '@fontsource/raleway/700.css'; 
+import '@fontsource/open-sans/400.css'; 
+import '@fontsource/open-sans/600.css'; 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -12,7 +11,6 @@ const ContactUs = () => {
         phone: '',
         message: ''
     });
-
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -23,7 +21,6 @@ const ContactUs = () => {
             [name]: value
         });
     };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -54,9 +51,8 @@ const ContactUs = () => {
         setTimeout(() => {
             setSuccessMessage('');
             setErrorMessage('');
-        }, 3000); // Hide the message after 3 seconds
+        }, 3000);
     };
-
     return (
         <>
             <Navbar />
@@ -141,7 +137,6 @@ const ContactUs = () => {
         </>
     );
 };
-
 const styles = {
     container: {
         display: 'flex',
@@ -286,5 +281,4 @@ const styles = {
         zIndex: '10',
     },
 };
-
 export default ContactUs;

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './Styles/AddProductPage.module.scss';
 import Navbar from './Navbar';
-
 const AddProductPage = () => {
   const [category, setCategory] = useState('');
   const [name, setName] = useState('');
@@ -10,27 +9,21 @@ const AddProductPage = () => {
   const [image, setImage] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
   const handleImageChange = (e) => {
-    setImage(e.target.files[0]); // Handle image file selection
+    setImage(e.target.files[0]); 
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Validate that the price is not empty or null
     if (!price || isNaN(price)) {
       setErrorMessage('Please enter a valid price.');
       return;
     }
-
-    // Create a FormData object to handle file upload
     const formData = new FormData();
     formData.append('category', category);
     formData.append('name', name);
-    formData.append('price', parseFloat(price)); // Parse the price correctly
+    formData.append('price', parseFloat(price));
     if (image) {
-      formData.append('image', image); // Append the image file
+      formData.append('image', image);
     }
 
     try {
@@ -105,7 +98,7 @@ const AddProductPage = () => {
               id="image"
               onChange={handleImageChange}
               className={styles.input}
-              accept="image/*" // Accept only image files
+              accept="image/*"
               required
             />
           </div>

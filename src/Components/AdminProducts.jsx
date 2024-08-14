@@ -1,50 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Styles/AdminProducts.css';
-import AdminSidebar from './AdminSidebar'; // Import the sidebar
+import AdminSidebar from './AdminSidebar';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  const [successMessage, setSuccessMessage] = useState(''); // Success message state
-
+  const [successMessage, setSuccessMessage] = useState('');
   const fetchProducts = async () => {
     try {
       const response = await axios.get('http://localhost:8080/products');
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
-      setSuccessMessage('Failed to fetch products.'); // Set error message
+      setSuccessMessage('Failed to fetch products.');
     } finally {
-      setIsLoading(false); // Ensure loading state is set to false
+      setIsLoading(false);
     }
   };
-
   useEffect(() => {
     fetchProducts();
   }, []);
-
   const deleteProduct = async (productId) => {
     try {
       await axios.delete(`http://localhost:8080/products/${productId}`);
-      setSuccessMessage('Product deleted successfully!'); // Set success message
-      fetchProducts(); // Refresh the product list
+      setSuccessMessage('Product deleted successfully!');
+      fetchProducts();
     } catch (error) {
       console.error('Error deleting product:', error);
-      setSuccessMessage('Failed to delete product.'); // Set error message
+      setSuccessMessage('Failed to delete product.');
     }
   };
-
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
   return (
     <div className='admin-body'>
       <div className="admin-dashboard-container">
-        <AdminSidebar /> {/* Use the sidebar component */}
+        <AdminSidebar /> 
         <main className="admin-main-content">
           <h1>Admin Products</h1>
           {successMessage && (
@@ -103,5 +97,4 @@ const AdminProducts = () => {
     </div>
   );
 };
-
 export default AdminProducts;

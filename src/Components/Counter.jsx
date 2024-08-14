@@ -1,9 +1,6 @@
-// Counter.js
 import React, { useState } from 'react';
-
 const Counter = ({ initialQuantity, onQuantityChange, showCounter }) => {
   const [quantity, setQuantity] = useState(initialQuantity);
-
   const increaseQuantity = () => {
     setQuantity(prev => {
       const newQuantity = prev + 1;
@@ -11,7 +8,6 @@ const Counter = ({ initialQuantity, onQuantityChange, showCounter }) => {
       return newQuantity;
     });
   };
-
   const decreaseQuantity = () => {
     setQuantity(prev => {
       if (prev > 0) {
@@ -22,9 +18,7 @@ const Counter = ({ initialQuantity, onQuantityChange, showCounter }) => {
       return prev;
     });
   };
-
   if (!showCounter) return null;
-
   return (
     <div className="counter">
       <button onClick={decreaseQuantity}>-</button>
@@ -33,5 +27,4 @@ const Counter = ({ initialQuantity, onQuantityChange, showCounter }) => {
     </div>
   );
 };
-
 export default Counter;

@@ -30,9 +30,7 @@ const ProductsPage = () => {
   const [buyingProduct, setBuyingProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [successMessage, setSuccessMessage] = useState('');
-
   useEffect(() => {
-    // Fetch products from Product entity
     const fetchProducts = async () => {
       try {
         const response = await axios.get('http://localhost:8080/products');
@@ -41,8 +39,6 @@ const ProductsPage = () => {
         console.error('Error fetching products:', error);
       }
     };
-
-    // Fetch approved products from AddProduct entity and their images
     const fetchApprovedProducts = async () => {
       try {
         const response = await axios.get('http://localhost:8080/add-products/approved');
@@ -61,37 +57,29 @@ const ProductsPage = () => {
         console.error('Error fetching approved products:', error);
       }
     };
-
     fetchProducts();
     fetchApprovedProducts();
   }, []);
-
   useEffect(() => {
-    // Combine and filter products based on category
     const allProducts = [...products, ...approvedProducts];
     const filtered = category === 'All'
       ? allProducts
       : allProducts.filter(product => product.category === category);
-
     setFilteredProducts(filtered);
   }, [products, approvedProducts, category]);
-
   const handleBuyNow = (productId) => {
     setBuyingProduct(productId);
   };
-
   const handleIncrease = () => {
     setQuantity(quantity + 1);
   };
-
   const handleDecrease = () => {
     setQuantity(quantity > 1 ? quantity - 1 : 1);
   };
-
   const handleConfirm = async () => {
     const product = filteredProducts.find(p => p.id === buyingProduct);
     if (product) {
-      console.log('Adding to cart:', { product, quantity }); // Log product and quantity
+      console.log('Adding to cart:', { product, quantity });
       try {
         await addToCart(product, quantity);
         setSuccessMessage(`${product.name} added to the cart successfully.`);
@@ -107,7 +95,6 @@ const ProductsPage = () => {
       console.error('Product not found:', buyingProduct);
     }
   };
-
   return (
     <div>
       <div className="container">
@@ -160,5 +147,4 @@ const ProductsPage = () => {
     </div>
   );
 };
-
 export default ProductsPage;

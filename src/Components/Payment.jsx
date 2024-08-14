@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCcVisa, faCcMastercard, faCcAmex, faCcPaypal } from '@fortawesome/free-brands-svg-icons';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import './Styles/Payment.css';
-
 const Payment = () => {
   const [cardData, setCardData] = useState({
     cvc: '',
@@ -19,35 +18,28 @@ const Payment = () => {
   const [upi, setUpi] = useState('');
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
-
   const navigate = useNavigate();
-
   const handleInputChange = (e) => {
     setCardData({ ...cardData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: '' });
   };
-
   const handleFocusChange = (e) => {
     setFocused(e.target.name);
   };
-
   const validateForm = async (e) => {
     e.preventDefault();
     const newErrors = {};
-
     if (!cardData.name) newErrors.name = 'Name on card is required';
     if (!cardData.number) newErrors.number = 'Card number is required';
     if (!cardData.expiryMonth) newErrors.expiryMonth = 'Expiry month is required';
     if (!cardData.expiryYear) newErrors.expiryYear = 'Expiry year is required';
     if (!cardData.cvc) newErrors.cvc = 'CVC is required';
     if (!phone) newErrors.phone = 'Phone number is required';
-    if (!upi) newErrors.upi = 'UPI ID is required';
-
+    if(!upi) newErrors.upi = 'UPI ID is required';
     const cardNumberPattern = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
     if (cardData.number && !cardNumberPattern.test(cardData.number)) {
       newErrors.number = 'Card number format is invalid';
     }
-
     const expiryMonthPattern = /^(0[1-9]|1[0-2])$/;
     const expiryYearPattern = /^\d{2}$/;
     if (cardData.expiryMonth && !expiryMonthPattern.test(cardData.expiryMonth)) {
@@ -56,41 +48,31 @@ const Payment = () => {
     if (cardData.expiryYear && !expiryYearPattern.test(cardData.expiryYear)) {
       newErrors.expiryYear = 'Expiry year format should be YY';
     }
-
     if (cardData.cvc && (cardData.cvc.length < 3 || cardData.cvc.length > 4)) {
       newErrors.cvc = 'CVV should be 3 or 4 digits';
     }
-
     if (upi && !upi.includes('@')) {
       newErrors.upi = 'UPI ID must contain "@"';
     }
-
     setErrors(newErrors);
-
     if (Object.keys(newErrors).length === 0) {
       setSuccessMessage('Order placed successfully!');
-      // Replace the following with actual order placement logic if needed
       await submitPayment();
     }
   };
-
   const submitPayment = async () => {
     try {
-      // Call the placeOrder endpoint to place an order
       const orderResponse = await fetch('http://localhost:8080/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
       });
-  
       if (!orderResponse.ok) {
         const errorData = await orderResponse.json();
         setErrors(errorData.errors || { general: 'Failed to place order' });
         return;
       }
-  
-      // Proceed with payment only if the order placement was successful
       const paymentResponse = await fetch('http://localhost:8080/api/payments', {
         method: 'POST',
         headers: {
@@ -106,7 +88,6 @@ const Payment = () => {
           upi: upi
         }),
       });
-  
       if (paymentResponse.ok) {
         setSuccessMessage('Order placed and payment processed successfully!');
         setTimeout(() => {

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Styles/AdminDashboard.css';
-import AdminSidebar from './AdminSidebar'; // Import the sidebar
+import AdminSidebar from './AdminSidebar'; 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const AdminDashboard = () => {
   return (
     <div className='admin-body'>
       <div className="admin-dashboard-container">
-        <AdminSidebar /> {/* Use the sidebar component */}
+        <AdminSidebar />
         <main className="admin-main-content">
           <h1>Admin Dashboard</h1>
           <br></br>

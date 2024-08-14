@@ -5,7 +5,6 @@ import './Styles/Categories.scss';
 import Categories from './Categories';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
-
 const Home = () => {
   return (
     <div>
@@ -36,5 +35,4 @@ const Home = () => {
     </div>
   );
 };
-
 export default Home;

@@ -3,14 +3,11 @@ import { CartContext } from './CartContext';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import './Styles/CartPage.scss';
-
 const OrderPage = () => {
   const { orders } = useContext(CartContext);
-
   if (!orders) {
     return <div>Loading...</div>;
   }
-
   return (
     <div>
       <Navbar />
@@ -50,5 +47,4 @@ const OrderPage = () => {
     </div>
   );
 };
-
 export default OrderPage;

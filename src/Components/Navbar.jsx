@@ -5,26 +5,17 @@ import Logo from './Images/LOGO.png';
 import { AuthContext } from './AuthContext';
 import { CartContext } from './CartContext';
 import './Styles/Navbar.css';
-
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const { cart } = useContext(CartContext);
   const navigate = useNavigate();
   const location = useLocation();
-
-  // Handle logout and navigate to login page
   const handleLogout = () => {
     logout();
     navigate('/login');
   };
-
-  // Determine if the current path is active
   const isActive = (path) => location.pathname === path ? 'active' : '';
-
-  // Determine if cart should be hidden
   const hideCart = location.pathname === '/login' || location.pathname === '/signup';
-
-  // Render authentication buttons based on current path and user state
   const renderAuthButtons = () => {
     if (location.pathname === '/login') {
       return <Link to="/signup" className="btn btn__signup">Sign Up</Link>;
@@ -51,10 +42,7 @@ const Navbar = () => {
       );
     }
   };
-
-  // Ensure cart is an array to prevent errors
   const cartItems = Array.isArray(cart) ? cart : [];
-
   return (
     <header>
       <nav className="header__nav w-120">
@@ -90,5 +78,4 @@ const Navbar = () => {
     </header>
   );
 };
-
 export default Navbar;

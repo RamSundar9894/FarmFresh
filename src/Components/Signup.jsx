@@ -9,7 +9,6 @@ import Navbar from './Navbar';
 import { AuthContext } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
 const SignupForm = () => {
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -19,11 +18,8 @@ const SignupForm = () => {
         password: '',
         confirmPassword: '',
     });
-
     const [errors, setErrors] = useState({});
     const [apiMessage, setApiMessage] = useState('');
-
-    // Validation function
     const validate = () => {
         const newErrors = {};
         if (!formData.username) newErrors.username = 'Username is required';
@@ -44,34 +40,26 @@ const SignupForm = () => {
         }
         return newErrors;
     };
-
-    // Handle input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
-
-    // Handle input focus
     const handleFocus = (e) => {
         const parent = e.target.closest('.input-container');
         if (parent) parent.classList.add('focus');
     };
-
-    // Handle input blur
     const handleBlur = (e) => {
         const parent = e.target.closest('.input-container');
         if (parent && !e.target.value) {
             parent.classList.remove('focus');
         }
     };
-
-    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         const validationErrors = validate();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
-            setApiMessage(''); // Clear API message if there are validation errors
+            setApiMessage(''); 
         } else {
             try {
                 const response = await axios.post('http://localhost:8080/users/signup', {
@@ -81,7 +69,7 @@ const SignupForm = () => {
                 });
                 const message = response.data;
                 if (message === "User registered successfully!") {
-                    login(formData.username); // Automatically log in the user after signup
+                    login(formData.username);
                     navigate('/login');
                 } else {
                     setApiMessage(message);
@@ -96,7 +84,6 @@ const SignupForm = () => {
             }
         }
     };
-
     return (
         <div>
             <Navbar />
@@ -189,5 +176,4 @@ const SignupForm = () => {
         </div>
     );
 };
-
 export default SignupForm;

@@ -6,7 +6,6 @@ import Grains from './Images/grains.png';
 import Dairy from './Images/Dairy.png';
 import Vegetables from './Images/Vegetables.jpg';
 import Fruits from './Images/Fruits.jpg';
-
 const categories = [
   { name: 'Vegetables', image: Vegetables },
   { name: 'Fruits', image: Fruits },
@@ -14,7 +13,6 @@ const categories = [
   { name: 'Grains', image: Grains },
   { name: 'Greens', image: Greens }
 ];
-
 const Categories = () => {
   return (
     <section className="categories w-120">
@@ -34,5 +32,4 @@ const Categories = () => {
     </section>
   );
 };
-
 export default Categories;

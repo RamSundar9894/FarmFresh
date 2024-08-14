@@ -8,7 +8,6 @@ import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 import Navbar from './Navbar';
 import { AuthContext } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
-
 const LoginForm = () => {
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -17,7 +16,6 @@ const LoginForm = () => {
     const [usernameFocus, setUsernameFocus] = useState(false);
     const [passwordFocus, setPasswordFocus] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (username && password) {
@@ -38,7 +36,6 @@ const LoginForm = () => {
             setErrorMessage('Please fill in both fields');
         }
     };
-
     return (
         <div>
             <img className="background-wave" src={waveImg} alt="wave" />
@@ -91,5 +88,4 @@ const LoginForm = () => {
         </div>
     );
 };
-
 export default LoginForm;
