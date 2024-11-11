@@ -88,7 +88,7 @@ const AdminProductConfirmation = () => {
                   <td>{product.id}</td>
                   <td>{product.name}</td>
                   <td>{product.category}</td>
-                  <td>${product.price.toFixed(2)}</td>
+                  <td>₹{product.price.toFixed(2)}</td>
                   <td>
                     {product.image ? (
                       <img src={product.image} alt={product.name} className="product-image" />
