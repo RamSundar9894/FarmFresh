@@ -1,64 +1,56 @@
 .admin-body {
-  background-color: #f0f4f8; /* Light background for the main body */
+  background-color: #f0f4f8; 
 }
-
 .admin-dashboard-container {
   display: flex;
   height: 100vh;
-  color: #333; /* Dark text for better readability */
+  color: #333;
   font-family: 'Arial', sans-serif;
 }
-
 .admin-sidebar {
   width: 250px;
   height: 90vh;
   margin-top: 3vh;
   margin-left: 1vw;
   border-radius: 20px;
-  background-color: #ffffff; /* White background for sidebar */
+  background-color: #ffffff;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
-
 .admin-sidebar-header h2 {
-  color: #2e8b57; /* Dark green color for the header */
+  color: #2e8b57; 
   font-size: 37px;
   margin-bottom: 30px;
 }
-
 .admin-sidebar-nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .admin-sidebar-nav ul li {
   margin-bottom: 25px;
   font-size: 22px;
   display: flex;
   align-items: center;
-  color: #333; /* Dark text color */
+  color: #333;
   transition: background-color 0.3s ease, color 0.3s ease;
   cursor: pointer;
   padding: 10px;
   border-radius: 5px;
 }
-
 .admin-sidebar-nav ul li:hover {
-  background-color: #e0f7fa; /* Light teal background on hover */
+  background-color: #e0f7fa;
 }
-
 .admin-sidebar-nav ul li i {
   margin-right: 15px;
   font-size: 32px;
-  color: #2e8b57; /* Green icon color */
+  color: #2e8b57; 
 }
-
 .admin-logout {
   position: absolute;
   bottom: 20px;
   font-size: 22px;
-  color: #2e8b57; /* Green color for logout */
+  color: #2e8b57;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -85,7 +77,7 @@
   align-items: center;
   overflow-y: auto;
   margin-top: 7%;
-  background-color: #ffffff; /* White background for the main content */
+  background-color: #ffffff;
 }
 
 .admin-stats-container {
@@ -98,7 +90,7 @@
 }
 
 .admin-stats-card {
-  background-color: #ffffff; /* White background for cards */
+  background-color: #ffffff;
   padding: 30px;
   border-radius: 10px;
   width: 48%;
@@ -113,18 +105,18 @@
 }
 
 .admin-stats-card h3 {
-  color: #2e8b57; /* Dark green for stats headings */
+  color: #2e8b57;
   font-size: 50px;
   margin-bottom: 15px;
 }
 
 .admin-stats-card p {
-  color: #333; /* Dark text color for stats descriptions */
+  color: #333;
   font-size: 18px;
 }
 
 .admin-recent-activities {
-  background-color: #ffffff; /* White background for activities */
+  background-color: #ffffff; 
   padding: 25px;
   border-radius: 10px;
   width: 100%;
@@ -136,7 +128,7 @@
   font-size: 24px;
   margin-bottom: 20px;
   text-align: left;
-  color: #2e8b57; /* Dark green for recent activities heading */
+  color: #2e8b57; 
 }
 
 .admin-activity-card {
@@ -147,7 +139,7 @@
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #e8f5e9; /* Light green background for activity cards */
+  background-color: #e8f5e9; 
 }
 
 .admin-activity-card:hover {
@@ -157,12 +149,12 @@
 
 .admin-activity-card i {
   margin-right: 15px;
-  color: #2e8b57; /* Green icon color */
+  color: #2e8b57; 
   font-size: 24px;
 }
 
 .admin-activity-card p {
   margin: 0;
   font-size: 18px;
-  color: #333; /* Dark text color */
+  color: #333; 
 }

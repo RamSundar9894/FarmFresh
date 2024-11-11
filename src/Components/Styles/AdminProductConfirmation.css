@@ -1,17 +1,17 @@
 .admin-page-container {
     display: flex;
-    height: 100vh; /* Full viewport height */
+    height: 100vh; 
   }
   
   .admin-sidebar {
-    width: 250px; /* Width of the sidebar */
+    width: 250px; 
     flex-shrink: 0;
   }
   
   .admin-product-confirmation {
     flex-grow: 1;
     padding: 20px;
-    overflow-y: auto; /* Allows scrolling if content exceeds height */
+    overflow-y: auto;
   }
   
   .products-table {
@@ -35,7 +35,7 @@
   }
   
   button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50; 
     border: none;
     color: white;
     padding: 10px 20px;
@@ -52,53 +52,43 @@
   }
   
   button:nth-of-type(2) {
-    background-color: #f44336; /* Red */
+    background-color: #f44336;
   }
   
   button:nth-of-type(2):hover {
     background-color: #e53935;
   }
-  /* AdminProductConfirmation.css */
-
-/* Ensure the container takes up the full height of the viewport */
 .admin-product-confirmation {
     display: flex;
     flex-direction: row;
     height: 100vh;
   }
-  
-  /* Style the sidebar (assuming AdminSidebar has specific styles) */
   .admin-sidebar {
-    width: 250px; /* Adjust width as necessary */
-    background-color: #f4f4f4; /* Example background color */
+    width: 250px;
+    background-color: #f4f4f4;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     position: fixed;
     height: 100%;
     overflow-y: auto;
   }
-  
-  /* Style the main content area */
   .main-content {
     flex: 1;
-    margin-left: 250px; /* This should match the width of the sidebar */
+    margin-left: 250px;
     padding: 20px;
     background-color: #ffffff;
-    overflow-y: auto; /* Allows scrolling if content overflows */
+    overflow-y: auto;
   }
-  
   .products-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
   }
-  
   .products-table th, .products-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
   }
-  
   .products-table th {
     background-color: #f4f4f4;
   }

@@ -1,19 +1,17 @@
 .container {
     padding: 20px;
     max-width: 800px;
-    margin: 80px auto 0 auto; /* Adjusted margin-top to accommodate the Navbar height */
+    margin: 80px auto 0 auto;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
   .title {
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
     color: #333;
   }
-  
   .successMessage,
   .errorMessage {
     margin: 20px 0;
@@ -22,45 +20,38 @@
     font-size: 16px;
     text-align: center;
   }
-  
   .successMessage {
     background-color: #dff0d8;
     color: #3c763d;
     border: 1px solid #d6e9c6;
   }
-  
   .errorMessage {
     background-color: #f2dede;
     color: #a94442;
     border: 1px solid #ebccd1;
   }
-  
   .formGroup {
     margin-bottom: 15px;
   }
-  
   .label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
     font-size: 16px;
   }
-  
   .input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  text-transform: none; // Ensure no text transformation
+  text-transform: none;
 }
-
 .input:focus {
   border-color: #007bff;
   outline: none;
   box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.25);
 }
-  
   .btnSubmit {
     padding: 10px 20px;
     background-color: #28a745;
@@ -72,9 +63,7 @@
     text-align: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
-  
   .btnSubmit:hover {
     background-color: #218838;
     transform: scale(1.05);
   }
-  
