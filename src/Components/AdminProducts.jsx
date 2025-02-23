@@ -75,7 +75,7 @@ const AdminProducts = () => {
                         <td>{product.id}</td>
                         <td>{product.name}</td>
                         <td>{product.category}</td>
-                        <td>${product.price.toFixed(2)}</td>
+                        <td>₹{product.price.toFixed(2)}</td>
                         <td>
                           <button onClick={() => deleteProduct(product.id)}>
                             <i className="fas fa-trash-alt"></i> Delete
