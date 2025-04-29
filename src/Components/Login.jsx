@@ -22,7 +22,7 @@ const LoginForm = () => {
             const response = await login(username, password);
             if (response.success) {
                 const { role } = response;
-                if (username==='AdminUser') {
+                if (username==='Admin') {
                     navigate('/admin');
                 } else if (role === 'moderator') {
                     navigate('/moderator'); // Add a route for moderators if necessary
